@@ -1,0 +1,50 @@
+---
+title: "geom"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(openxlsx)
+
+```
+```{r read}
+df <- read_tsv("C:/Users/igola/Desktop/igola/geom/full_regions_output.tsv", col_names = FALSE,
+               cols(
+                 X1 = col_double(),
+                 X2 = col_character(),
+                 X3 = col_character(),
+                 X4 = col_character(),
+                 X5 = col_character(),
+                 X6 = col_character(),
+                 X7 = col_character(),
+                 X8 = col_character(),
+                 X9 = col_character(),
+                 X10 = col_character()
+))
+df <- df %>%
+  filter(str_detect(df$X6,'中国$')) %>%
+  mutate (verify = paste(X9,X10,sep = ","))
+df[72,9:10] <- c('36.29645','100.62276')
+df[df$X4 == "乌坵乡",9:10] <- c('24.989525','119.453182')
+df[df$X4 == "吉林",9:10] <- c('43.838085','126.549206')
+#top 20
+df_20 <- df %>%
+  filter(str_detect(df$X4,'广州|上海|北京|深圳|成都|三亚|西安|杭州|重庆|厦门|青岛|苏州|昆明|大连|丽江|江门|大理|天津|珠海|长沙'))
+df_20 <- df_20 %>% 
+  filter(str_detect(df_20$X3,"Guangzhou|Shanghai|Beijing|Shenzhen|Chengdu|Sanya|Xi'an|Hangzhou|Chongqing|Xiamen|Qingdao|Suzhou|Kunming|Dalian|Lijiang|Jiangmen|Dali|Tianjin|Zhuhai|Changsha"))
+write_csv(df_20, "C:/Users/igola/Desktop/igola/geom/top20.csv", col_names = FALSE)
+#difference
+df[,7:10] <- map(df[,7:10],as.numeric)
+df <- df %>%
+  mutate(difLon = X7 - X9) %>%
+  mutate(difLat = X8 - X10) %>%
+  mutate(dif = sqrt(difLon^2+difLat^2))
+#write
+write_csv(df, "C:/Users/igola/Desktop/igola/geom/tidy.csv")
+#analyse
+df %>% 
+    arrange(desc(dif)) %>%
+    head(nrow(df)*0.05)
+```
