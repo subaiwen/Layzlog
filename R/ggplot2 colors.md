@@ -115,9 +115,9 @@ bp + scale_fill_grey(start=0.8, end=0.2) + theme_classic()
 sp + scale_color_grey(start=0.8, end=0.2) + theme_classic()
 ```
 
-<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-color-scale-color-grey-change-value-1.png" title="ggplot2 color, graph, R software" alt="ggplot2 color, graph, R software" width="240"><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-color-scale-color-grey-change-value-2.png" title="ggplot2 color, graph, R software" alt="ggplot2 color, graph, R software" width="240"></p>
-
 > default value for the arguments *start* and *end* are : start = 0.2, end = 0.8 
+
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-color-scale-color-grey-change-value-1.png" title="ggplot2 color, graph, R software" alt="ggplot2 color, graph, R software" width="240"><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-color-scale-color-grey-change-value-2.png" title="ggplot2 color, graph, R software" alt="ggplot2 color, graph, R software" width="240"></p>
 
 <hr/>
 
