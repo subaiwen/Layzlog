@@ -101,6 +101,7 @@ The functions to use are :
 ```R
 # Box plot
 bp + scale_fill_grey() + theme_classic()
+
 # Scatter plot
 sp + scale_color_grey() + theme_classic()
 ```
