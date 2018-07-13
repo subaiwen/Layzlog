@@ -118,6 +118,7 @@ sp + scale_color_grey(start=0.8, end=0.2) + theme_classic()
 
 > default value for the arguments *start* and *end* are : start = 0.2, end = 0.8 
 
+<hr/>
 ### 2. Continuous
 
 The graph can be colored according to the values of a continuous variable using the functions :
