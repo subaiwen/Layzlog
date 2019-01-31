@@ -1,7 +1,7 @@
 p.55 Gelman
 Especially for models with interactions:
 1. Centering by subtracting the mean of the data
-
+re
 2. Using a conventional centering point
 
 The residual standard deviation and R2 do not change—linear transformation of the predictors does not affect the fit of a 
@@ -24,4 +24,7 @@ b2: main effect of x1 with average level of x1
 
 b3: 1 unit increase of one variable would cause an increase/decrease of b3 in the effect of the other variable
 
-centering may not prevent multicollinearity between predictors and the interaction term.
+Claim: centering may not prevent multicollinearity between predictors and the interaction term.
+
+Claim: the multicollinearity introduced by moderated multiple regression can be avoid if the predictors are independent.
+This can be achieved artificially by centering the predictors prior to computing the product/interaction.
